@@ -1,0 +1,27 @@
+{
+  "name": "docs-i18n",
+  "displayName": "Docs i18n",
+  "description": "Make generated Word, PowerPoint, Excel and PDF files render non-Latin text instead of empty boxes. Every font the official document skills mandate fails on CJK, Devanagari and Thai; three of seven fail on Hebrew and Arabic.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Fine Structure",
+    "url": "https://finestructure.ai"
+  },
+  "homepage": "https://github.com/finestructure-ai/docs-i18n",
+  "repository": "https://github.com/finestructure-ai/docs-i18n",
+  "license": "MIT",
+  "keywords": [
+    "claude-skill",
+    "docx",
+    "pptx",
+    "xlsx",
+    "pdf",
+    "ooxml",
+    "rtl",
+    "hebrew",
+    "arabic",
+    "cjk",
+    "i18n",
+    "fonts"
+  ]
+}

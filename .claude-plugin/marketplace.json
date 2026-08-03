@@ -1,0 +1,35 @@
+{
+  "name": "finestructure-docs-i18n",
+  "owner": {
+    "name": "Fine Structure",
+    "url": "https://finestructure.ai"
+  },
+  "plugins": [
+    {
+      "name": "docs-i18n",
+      "source": "./plugins/docs-i18n",
+      "description": "Make generated Word, PowerPoint, Excel and PDF files render non-Latin text instead of empty boxes. Every font the official document skills mandate fails on CJK, Devanagari and Thai; three of seven fail on Hebrew and Arabic.",
+      "license": "MIT"
+    },
+    {
+      "name": "ship-live",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/finestructure-ai/humanizer-multilingual.git",
+        "path": "plugins/ship-live"
+      },
+      "description": "Take a local prototype to a verified live URL.",
+      "license": "MIT"
+    },
+    {
+      "name": "share-live",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/finestructure-ai/humanizer-multilingual.git",
+        "path": "plugins/share-live"
+      },
+      "description": "Turn what you just built into a link you can send someone. Requires a Fine Structure account, stated up front.",
+      "license": "MIT"
+    }
+  ]
+}
