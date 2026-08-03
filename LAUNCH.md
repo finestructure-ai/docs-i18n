@@ -83,49 +83,49 @@ substitution behaviour rather than something I verified per version.
 
 ## Draft B: Reddit, r/ClaudeAI
 
-More personal. Same facts. Leads with the scripts that fail on all seven fonts,
-which is also the stronger number.
+**Written to the measured shape of that sub, not to the HN shape.** From our own
+data (2026-07-30): a 167 character comment scored 839 there, comments under 500
+characters average 14.65 points against 2.5 for anything over 800, and the sub
+actively mocks AI writing tells by name. A long tidy post with a table is the
+exact shape that gets called slop there, regardless of whether the content is
+good.
+
+So this is short, takes a position, and is not polished smooth.
 
 **Title**
 
 ```
-Every font Claude's document skills recommend is missing Chinese, Japanese, Korean, Hindi and Thai
+Claude's document skills recommend 7 fonts. None of them have Chinese, Japanese, Korean, Hindi or Thai.
 ```
 
 **Body**
 
 ```
-I ship software in 18 languages, so I look at this stuff more than most people
-have reason to.
+The official docx/pptx/xlsx skills tell you to use Arial, Calibri, Cambria,
+Times New Roman, Courier New, Bookman Old Style or Century Schoolbook.
 
-Claude's official document skills mandate a font list for .docx, .pptx and
-.xlsx: Arial, Calibri, Cambria, Times New Roman, Courier New, Bookman Old Style,
-Century Schoolbook.
+I pulled the cmap table on all seven. Zero CJK, zero Devanagari, zero Thai.
+Cambria and the two book fonts don't have Hebrew or Arabic either. Cyrillic and
+Greek are fine in all of them, which is presumably why this survived.
 
-I read the cmap table of each one. Not a single font on that list contains
-Chinese, Japanese, Korean, Hindi or Thai. Cambria, Bookman Old Style and Century
-Schoolbook additionally contain no Hebrew and no Arabic.
+Word hides it by substituting a font, so you don't get boxes, you just quietly
+get a different font than the one you asked for. PDF doesn't substitute.
 
-Cyrillic and Greek are fine in all seven, which is probably why nobody noticed.
-Test in a European language and it looks perfect.
-
-Word usually substitutes a font rather than showing boxes, so it does not look
-broken, it looks like your typography choices were quietly ignored and the
-result differs on every machine. In PDF there is no substitution and the glyphs
-are missing. The official pdf skill actually documents that outcome for
-subscripts without connecting it to entire writing systems.
-
-What surprised me most: the OOXML schemas shipped inside those very skills
-already define w:rtl, w:bidi, w:cs and eastAsia. Nothing is missing from the
-format. The instructions just never use them.
-
-Script to check it yourself, plus the elements that fix it:
+script to check your own font set:
 https://github.com/finestructure-ai/docs-i18n
 
-Measured on Windows with Office fonts. If you run it on macOS or Linux and get
-different coverage I would genuinely like to know, that is the number I am least
-sure about.
+only tested on windows office fonts, no idea if mac differs
 ```
+
+**Notes on the wording, so it does not get sanded flat in editing**
+
+- No table. A table is the single most generated-looking element on Reddit.
+- Contractions and one lowercase closing line, because uniformly perfect
+  capitalization is itself a tell there. Do not "fix" the last line.
+- The uncertainty at the end is short and offhand rather than a formal caveats
+  paragraph. Same honesty, different register.
+- No credential, no "I ship software in 18 languages". In this sub that reads as
+  positioning. On HN it reads as context, which is why the HN draft keeps it.
 
 ---
 
