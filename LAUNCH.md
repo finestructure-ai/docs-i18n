@@ -9,6 +9,11 @@ Two principles behind the wording:
 2. **State the limits of the measurement inside the post.** The first comment on
    anything like this is someone finding a hole. Naming the hole first is what
    makes the rest credible.
+3. **Lead with the scripts that fail on all seven fonts**, which are Chinese,
+   Japanese, Korean, Hindi and Thai. Hebrew and Arabic fail on three of seven,
+   so they are the weaker half of the finding and belong in the table rather
+   than in the headline. This also keeps the post about a measurement instead of
+   about one language and the arguments that tend to follow.
 
 Fine Structure is not pitched in either draft. It is in the repo README, which
 is where someone who cares will look.
@@ -78,34 +83,37 @@ substitution behaviour rather than something I verified per version.
 
 ## Draft B: Reddit, r/ClaudeAI
 
-More personal. Same facts.
+More personal. Same facts. Leads with the scripts that fail on all seven fonts,
+which is also the stronger number.
 
 **Title**
 
 ```
-I found out why my Hebrew documents from Claude looked wrong. It's the font list.
+Every font Claude's document skills recommend is missing Chinese, Japanese, Korean, Hindi and Thai
 ```
 
 **Body**
 
 ```
-I build in Hebrew, so I hit this early and assumed it was me.
+I ship software in 18 languages, so I look at this stuff more than most people
+have reason to.
 
 Claude's official document skills mandate a font list for .docx, .pptx and
 .xlsx: Arial, Calibri, Cambria, Times New Roman, Courier New, Bookman Old Style,
 Century Schoolbook.
 
-I read the cmap table of each. Cambria, Bookman Old Style and Century Schoolbook
-contain no Hebrew and no Arabic at all. And all seven of them contain no
-Chinese, Japanese, Korean, Hindi or Thai.
+I read the cmap table of each one. Not a single font on that list contains
+Chinese, Japanese, Korean, Hindi or Thai. Cambria, Bookman Old Style and Century
+Schoolbook additionally contain no Hebrew and no Arabic.
 
-Cyrillic and Greek are fine in every one, which is probably why nobody noticed.
+Cyrillic and Greek are fine in all seven, which is probably why nobody noticed.
 Test in a European language and it looks perfect.
 
 Word usually substitutes a font rather than showing boxes, so it does not look
-broken, it looks like your typography choices were quietly ignored. In PDF you
-do get missing glyphs, and the official pdf skill actually documents that
-outcome for subscripts without connecting it to entire writing systems.
+broken, it looks like your typography choices were quietly ignored and the
+result differs on every machine. In PDF there is no substitution and the glyphs
+are missing. The official pdf skill actually documents that outcome for
+subscripts without connecting it to entire writing systems.
 
 What surprised me most: the OOXML schemas shipped inside those very skills
 already define w:rtl, w:bidi, w:cs and eastAsia. Nothing is missing from the
