@@ -110,14 +110,17 @@ Arabic also needs shaping and bidi before it is drawn, since reportlab does not
 join letters. Without it the text appears as disconnected isolated forms, which
 is legible to nobody. Use `arabic_reshaper` with `python-bidi`.
 
-## Fix 4: do not trust the preview
+## Fix 4: check coverage before you render, not after
 
-The official pptx skill renders QA thumbnails with a default bitmap font, so a
-missing glyph looks identical to a present one in the preview. The render and
-look at it loop cannot catch this class of bug.
+The pptx skill already warns that QA renders through LibreOffice and that it
+substitutes fonts it does not have, so the preview can differ from the real
+deck. That warning is about width and layout. The same substitution hides a
+glyph problem just as well: a script your font cannot render will still appear,
+drawn in whatever LibreOffice picked.
 
-Verify by opening the real file, or by checking coverage programmatically with
-the script above before writing.
+So a clean-looking render is not evidence that the font you specified contains
+the script. Check coverage programmatically with the script above before
+writing, then open the real file.
 
 ## Checklist
 

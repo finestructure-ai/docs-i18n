@@ -2,8 +2,8 @@
 
 **The font you specify is not the font your reader gets, for most of the world's writing systems.**
 
-The official document skills mandate a font list. For Chinese, Japanese, Korean,
-Hindi and Thai, not one font on that list contains the glyphs.
+The official document skills recommend a font list. For Chinese, Japanese,
+Korean, Hindi and Thai, not one font on that list contains the glyphs.
 
 What happens next depends on the renderer, and this is the part worth being
 precise about:
@@ -24,13 +24,17 @@ behaviour of font substitution rather than something I verified per version.
 
 ## The measurement
 
-`skills/xlsx/SKILL.md` requires *"Professional font (Arial, Times New Roman)
-throughout"*. `skills/pptx/SKILL.md` lists the safe fonts as *"Arial, Calibri,
-Cambria, Times New Roman, Courier New, Bookman Old Style, Century Schoolbook"*.
+`skills/xlsx/SKILL.md` asks for a *"Professional font (Arial, Times New Roman)
+throughout, unless the user says otherwise"*. `skills/pptx/SKILL.md` lists safe
+fonts as *"Arial, Calibri, Cambria, Times New Roman, Courier New, Bookman Old
+Style, Century Schoolbook"* and says to use them "for body text and anything
+where fit matters". Neither is an absolute rule, and that matters: the issue is
+not that they forbid a Chinese font, it is that nothing anywhere tells you to
+reach for one.
 
 Reading the cmap table of each one:
 
-| Mandated font | Hebrew | Arabic | CJK | Devanagari | Thai | Cyrillic | Greek |
+| Recommended font | Hebrew | Arabic | CJK | Devanagari | Thai | Cyrillic | Greek |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Arial | yes | yes | **no** | **no** | **no** | yes | yes |
 | Calibri | yes | yes | **no** | **no** | **no** | yes | yes |
@@ -67,9 +71,11 @@ Meanwhile `skills/pdf/SKILL.md` documents the exact failure mode, that missing
 glyphs render as solid black boxes, and scopes the warning to Unicode
 subscripts without ever generalising it to entire writing systems.
 
-And the self-check cannot catch it: the pptx QA renderer draws its preview
-thumbnails with a default Latin bitmap font, so a missing glyph looks identical
-to a present one.
+To be fair to the skills, they are not silent about fonts in general. The pptx
+skill states plainly that QA renders through LibreOffice, which substitutes
+fonts it does not have, and warns that the preview can therefore differ from the
+real deck. What is absent is any mention of non-Latin scripts specifically, or
+of the elements that handle them.
 
 ## What this skill does
 

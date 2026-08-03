@@ -54,6 +54,9 @@ for name, candidates in MANDATED.items():
     rows.append((name, os.path.basename(path), res))
 
 w = max(len(r[0]) for r in rows) + 2
+print("file actually tested for each font:")
+for n,f,_ in rows: print("   ", n.ljust(20), f)
+print()
 hdr = "font".ljust(w) + "".join(s.ljust(13) for s in SCRIPTS)
 print(hdr)
 print("-" * len(hdr))
