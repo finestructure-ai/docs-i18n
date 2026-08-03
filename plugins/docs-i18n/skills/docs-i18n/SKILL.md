@@ -6,8 +6,13 @@ description: Make generated Word, PowerPoint, Excel and PDF files render non-Lat
 # Documents in non-Latin scripts
 
 The official document skills produce correct files, right up to the moment the
-text is not Latin. Then the glyphs are missing, and the reader gets a row of
-empty boxes.
+text is not Latin. Then the font you specified does not contain the glyphs, and
+what the reader sees stops being what you asked for.
+
+In Word and PowerPoint the application substitutes some other font it finds
+locally, so the text renders in something you did not choose and that differs
+between machines. In PDF there is no substitution and the glyphs are simply
+missing.
 
 This is not a rendering quirk. It follows directly from the font list those
 skills mandate.

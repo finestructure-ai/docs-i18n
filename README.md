@@ -1,8 +1,26 @@
 # docs-i18n
 
-**The official document skills produce empty boxes for most of the world's writing systems.**
+**The font you specify is not the font your reader gets, for most of the world's writing systems.**
 
-Not a rendering quirk. It follows directly from the font list they mandate.
+The official document skills mandate a font list. For Chinese, Japanese, Korean,
+Hindi and Thai, not one font on that list contains the glyphs.
+
+What happens next depends on the renderer, and this is the part worth being
+precise about:
+
+- **In Word and PowerPoint**, the application usually substitutes some other
+  font it finds locally. You do not get boxes, you get *a different font than
+  the one you asked for*, chosen by the reader's machine, varying between
+  machines. Every typographic decision in the document is silently discarded for
+  that text.
+- **In PDF**, there is no substitution. The official `pdf` skill documents this
+  outcome itself: missing glyphs render as solid black boxes. It scopes the
+  warning to Unicode subscripts and never generalises it to entire writing
+  systems.
+
+I measured font coverage directly. I did not test every renderer's fallback
+behaviour, so treat the Word and PowerPoint description above as the documented
+behaviour of font substitution rather than something I verified per version.
 
 ## The measurement
 
